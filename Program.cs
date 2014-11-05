@@ -8,8 +8,6 @@ namespace virtual_environment_check
 {
     class Program
     {
-        //adminasdf / afs#R32sdf
-        //vmenvcheck
         static void Main()
         {
             Console.WriteLine("Running in Azure: {0}", IsRunningInAzure());
