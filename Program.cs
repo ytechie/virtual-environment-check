@@ -32,7 +32,8 @@ namespace virtual_environment_check
             var adapters = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces();
             var hasCloudDnsSuffix = adapters.Any(adapter => adapter.GetIPProperties().DnsSuffix.EndsWith(".cloudapp.net"));
 
-            var agentInstalled = Process.GetProcessesByName("WindowsAzureGuestAgent").Any();
+            var agentInstalled = Process.GetProcessesByName("WindowsAzureGuestAgent").Any()
+                || Process.GetProcessesByName("MicrosoftAzureGuestAgent").Any();
 
             return hasCloudDnsSuffix || agentInstalled;
         }
